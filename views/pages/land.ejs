@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+
+  <body>
+    <div class="container">
+
+        <div class="row">
+          <section>
+            <div class="col-md-9 col-md-offset-2">
+
+              <form id="signin" class="form-horizontal" method="post" action="/land" autocomplete="off">
+
+                <div class="page-header">
+                  <h3 style='text-align: left;'>Let's Connect</h3>
+                </div>
+
+                <!-- first name -->
+                <div class="form-group">
+                  <h4 class="col-md-3 col-md-offset-1 control-label"><b>first name<b style='color: red;'>*</b></b></h4>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" name="fname" id="fname" type="fname" placeholder="miles" />
+                  </div>
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                  <h4 class="col-md-3 col-md-offset-1 control-label"><b>last name<b style='color: red;'>*</b></b></h4>
+                  <div class="col-md-5">
+                    <input type="text" class="form-control" name="lname" id="lname" type="lname" placeholder="bainbridge" />
+                  </div>
+                </div>
+
+                <!-- buttons -->
+                <div class="form-group">
+                  <div class="col-lg-9" style='text-align: right;'>
+                    <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </section>
+
+        </div>
+
+      </div> <!-- /container -->
+
+  </body>
+</html>
