@@ -4,8 +4,6 @@ var app = express();
 
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
-// var connect = "postgres://alvinlu:Typical8!@localhost/temp_connect";
-
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -21,6 +19,24 @@ app.get('/', function(request, response) {
 
 app.get('/land', function(request, response) {
   response.render('pages/land');
+});
+
+app.post('/land', function(req, res){
+  pg.connect(conString, function(err, client, done) {
+	    if (err) {
+	      return console.error('error fetching client from pool', err);
+	    }
+	    console.log("connected to database");
+
+	    client.query('INSERT INTO temp_user(fname, lname) VALUES($1, $2)', [req.body.fname, req.body.lname], function(err, result) {
+	      done();
+	      if (err) {
+	        return console.error('error running query', err);
+	      }
+
+	      res.redirect('/db');
+	    });
+	});
 });
 
 app.get('/db', function (request, response) {
