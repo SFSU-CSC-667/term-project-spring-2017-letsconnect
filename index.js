@@ -4,6 +4,9 @@ var app = express();
 
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
+pg.defaults.ssl = true;
+var conString = (process.env.DATABASE_URL);
+var sess;
 
 app.set('port', (process.env.PORT || 5000));
 
