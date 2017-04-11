@@ -44,8 +44,8 @@ app.post('/land', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    // client.query('SELECT * FROM temp_user', function(err, result) {
-    client.query('INSERT INTO temp_user (fname, lname) values ($1, $2)', ["penis", "de milo"], function(err, result)){
+    client.query('SELECT * FROM temp_user', function(err, result) {
+    // client.query('INSERT INTO temp_user (fname, lname) values ($1, $2)', ["penis", "de milo"], function(err, result)){
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
