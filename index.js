@@ -32,11 +32,11 @@ app.post('/land', function(req, res){
 	    console.log("connected to database");
 
 	    client.query('INSERT INTO temp_user(fname, lname) VALUES($1, $2)', [req.body.fname, req.body.lname], function(err, result) {
-	      done();
+
 	      if (err) {
 	        return console.error('error running query', err);
 	      }
-
+        done();
 	      res.redirect('/db');
 	    });
 	});
@@ -44,7 +44,8 @@ app.post('/land', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM temp_user', function(err, result) {
+    // client.query('SELECT * FROM temp_user', function(err, result) {
+    client.query('INSERT INTO temp_user (fname, lname) values ($1, $2)', ['penis', 'de milo']){
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
