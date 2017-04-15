@@ -5,6 +5,17 @@ var app = express();
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
 pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT table_schema,table_name FROM information_schema.tables;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
+});
+
 var conString = (process.env.DATABASE_URL);
 var sess;
 
@@ -31,7 +42,7 @@ app.post('/land', function(req, res){
 	    }
 	    console.log("connected to database");
 
-	    client.query('INSERT INTO temp_user(fname, lname) VALUES($1, $2)', [req.body.fname, req.body.lname], function(err, result) {
+	    client.query('INSERT INTO temp_user(id, fname, lname) VALUES(DEFAULT, $1, $2)', [req.body.fname, req.body.lname], function(err, result) {
 
 	      if (err) {
 	        return console.error('error running query', err);
@@ -45,12 +56,11 @@ app.post('/land', function(req, res){
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM temp_user', function(err, result) {
-    // client.query('INSERT INTO temp_user (fname, lname) values ($1, $2)', ["penis", "de milo"], function(err, result)){
-      done();
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
        { response.render('pages/db', {results: result.rows} ); }
+      done();
     });
   });
 });
