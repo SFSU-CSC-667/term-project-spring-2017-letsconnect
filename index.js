@@ -22,7 +22,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/land', function(request, response) {
-  response.render('pages/land');
+
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM temp_user', function(err, result) {
       if (err)
@@ -32,6 +32,8 @@ app.get('/land', function(request, response) {
       done();
     });
   });
+
+  response.render('pages/land');
 
 });
 
