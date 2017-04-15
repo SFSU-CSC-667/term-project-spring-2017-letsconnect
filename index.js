@@ -23,15 +23,7 @@ app.get('/', function(request, response) {
 
 app.get('/land', function(request, response) {
   response.render('pages/land');
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM temp_user', function(err, result) {
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.render('pages/db', {results: result.rows} ); }
-      done();
-    });
-  });
+
 });
 
 app.post('/land', function(req, res){
