@@ -24,9 +24,6 @@ app.get('/', function(request, response) {
 app.get('/land', function(request, response) {
 
   response.render('pages/land');
-  if (err){
-    console.log(err);
-  }
 
 });
 
