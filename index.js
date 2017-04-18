@@ -29,6 +29,8 @@ app.get('/land', function(request, response) {
 
 app.post('/land', function(req, res){
   const reqbody = req.body;
+  console.log(reqbody.fname);
+  console.log(reqbody.lname);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 	    if (err) {
 	      return console.error('error fetching client from pool', err);
