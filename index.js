@@ -34,7 +34,7 @@ app.post('/land', function(req, res){
 	    }
 	    console.log("connected to database");
 
-	    client.query('INSERT INTO temp_user(id, fname, lname) VALUES(DEFAULT, $1, $2)', [req.body.fname, req.body.lname], function(err, result) {
+	    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [req.body.fname, req.body.lname], function(err, result) {
 
 	      if (err) {
 	        return console.error('error running query', err);
