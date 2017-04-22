@@ -34,6 +34,8 @@ app.get('/land', function(request, response) {
 app.post('/land', function(req, res){
 
   console.log("Request body: " + req.body);
+  console.log("First name: "+ req.body.fname);
+  console.log("Last name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
