@@ -1,6 +1,7 @@
 var cool = require('cool-ascii-faces');
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
