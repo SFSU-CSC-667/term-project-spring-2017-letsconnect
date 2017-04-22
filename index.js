@@ -14,7 +14,7 @@ var sess;
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.bodyParser.json());
+app.use(bodyParser.json());
 app.use(app.router);
 
 // views is directory for all template files
