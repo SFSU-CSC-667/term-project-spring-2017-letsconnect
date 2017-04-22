@@ -43,13 +43,14 @@ app.post('/land', function(req, res){
     }
     console.log("connected to database");
 
-    //client.query('INSERT INTO temp_user VALUES(, $1, $2)', [reqbody.fname, reqbody.lname], function(err, result) {
+    client.query('INSERT INTO temp_user VALUES(, $1, $2)', [reqbody.fname, reqbody.lname], function(err, result) {
 
-    if (err) {
-      return console.error('error running query', err);
-    }
-    done();
-    res.redirect('/db');
+      if (err) {
+        return console.error('error running query', err);
+      }
+      done();
+      res.redirect('/db');
+    });
   });
 });
 
