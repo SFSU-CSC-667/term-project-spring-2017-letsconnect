@@ -8,7 +8,7 @@ var app = express();
 var pg = require('pg');
 pg.defaults.ssl = true;
 
-var conString = (process.env.DATABASE_URL);
+//var conString = (process.env.DATABASE_URL);
 var sess;
 
 app.set('port', (process.env.PORT || 5000));
