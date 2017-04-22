@@ -8,14 +8,14 @@ var app = express();
 var pg = require('pg');
 pg.defaults.ssl = true;
 
-//var conString = (process.env.DATABASE_URL);
 var sess;
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-//app.use(app.router);
+
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -32,17 +32,10 @@ app.get('/land', function(request, response) {
 });
 
 app.post('/land', function(req, res){
-  /*const reqbody = req.body;
-  console.log(reqbody.fname);
-  console.log(reqbody.lname);*/
-  console.log(req.body);
-  console.log(process.env.DATABASE_URL);
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 
-    if(client)
-    console.log(client);
-    else
-    console.log("no client.")
+  console.log("Request body: " + req.body);
+  console.log("Database URL: " + process.env.DATABASE_URL);
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
