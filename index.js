@@ -37,13 +37,16 @@ app.post('/land', function(req, res){
   console.log("First name: "+ req.body.fname);
   console.log("Last name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
+
+  var fname = req.body.fname;
+  var lname = req.body.lname;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO temp_user VALUES(, $1, $2)', [reqbody.fname, reqbody.lname], function(err, result) {
+    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
