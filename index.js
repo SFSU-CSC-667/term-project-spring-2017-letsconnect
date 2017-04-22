@@ -34,8 +34,10 @@ app.post('/land', function(req, res){
   console.log(process.env.DATABASE_URL);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 
-    if(client){console.log(client);}
-    else{console.log("no client.")}
+    if(client)
+      console.log(client);
+    else
+      console.log("no client.")
 	    if (err) {
 	      return console.error('error fetching client from pool', err);
 	    }
