@@ -28,9 +28,10 @@ app.get('/land', function(request, response) {
 });
 
 app.post('/land', function(req, res){
-  const reqbody = req.body;
+  /*const reqbody = req.body;
   console.log(reqbody.fname);
-  console.log(reqbody.lname);
+  console.log(reqbody.lname);*/
+  console.log(req.body);
   console.log(process.env.DATABASE_URL);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 
