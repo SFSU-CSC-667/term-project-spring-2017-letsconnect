@@ -30,7 +30,7 @@ app.get('/', function(request, response) {
 app.post('/', function(req, res){
 
   // for registering an account
-  console.log("Request body: " + req.body);
+  console.log(req.body);
   console.log("First name: "+ req.body.fname);
   console.log("Last name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
@@ -96,7 +96,7 @@ app.post('/land', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM temp_user', function(err, result) {
+    client.query('SELECT * FROM users', function(err, result) {
       if (err)
       { console.error(err); response.send("Error " + err); }
       else
