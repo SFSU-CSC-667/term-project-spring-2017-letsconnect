@@ -42,7 +42,7 @@ app.post('/', function(req, res){
   var password = req.body.rpassword;
   var confpass = req.body.rconfirmpassword;
   // var comparison = password.localeCompare(confpass);
-  if(password === confpass){
+  if(password == confpass){
     
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
