@@ -36,16 +36,22 @@ app.post('/', function(req, res){
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
-  console.log(fname);
   var lname = req.body.lname;
   var username = req.body.username;
+  var email = req.body.remail;
+  var password = req.body.rpassword;
+  var confpass = req.body.rconfirmpassword;
+  if(password != confpass){
+    console.log('passwords do not match')
+  }else{
+
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users (id, first_name, last_name, username, email, password)VALUES(DEFAULT, fname, lname, username, email, password)', function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -54,6 +60,7 @@ app.post('/', function(req, res){
       res.redirect('/db');
     });
   });
+ } //end else
 });
 
 app.get('/land', function(request, response) {
