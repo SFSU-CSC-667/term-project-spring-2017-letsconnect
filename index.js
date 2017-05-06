@@ -48,7 +48,7 @@ app.post('/', function(req, res){
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users (id, first_name, last_name, username, email, password)VALUES(DEFAULT, fname, lname, username, email, password)', function(err, result) {
+    client.query('INSERT INTO users (id, first_name, last_name, username, email, password) VALUES (DEFAULT,$1, $2, $3, $4, $5)', [fname, lname, username, email, password]function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
