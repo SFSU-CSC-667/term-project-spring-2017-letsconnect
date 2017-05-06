@@ -42,11 +42,9 @@ app.post('/', function(req, res){
   var password = req.body.rpassword;
   var confpass = req.body.rconfirmpassword;
   var comparison = password.localeCompare(confpass);
-  if(comparison != 0){
-    console.log('passwords do not match')
-  }else{
-
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  if(password === confpass){
+    
+      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
@@ -61,6 +59,13 @@ app.post('/', function(req, res){
       res.redirect('/db');
     });
   });
+
+
+
+    
+  }else{
+    console.log('passwords do not match')
+
  } //end else
 });
 
