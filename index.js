@@ -5,9 +5,11 @@ var socketIO = require('socket.io');
 var path = require('path');
 var logger = require('morgan');
 var app = express();
+
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
 pg.defaults.ssl = true;
+
 // Setting up crypto for hashing
 var crypto = require('crypto');
 var hash = crypto.createHash('sha256');
@@ -32,8 +34,8 @@ app.post('/', function(req, res){
   // for registering an account
   console.log(req.body);
   console.log("First name: "+ req.body.fname);
-  console.log("Last name:" + req.body.lname);
-  console.log("Database URL: " + process.env.DATABASE_URL);
+  console.log("Last name:" + req.body.lname)
+;  console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
   var lname = req.body.lname;
@@ -41,8 +43,14 @@ app.post('/', function(req, res){
   var email = req.body.remail;
   var password = req.body.rpassword;
   var confpass = req.body.rconfirmpassword;
-  // var comparison = password.localeCompare(confpass);
-    
+  
+    if(password == confpass){
+      console.log('match!');
+    }else{
+      console.log('no match. :(');
+    }
+
+
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
@@ -50,8 +58,6 @@ app.post('/', function(req, res){
     console.log("connected to database");
 
     client.query('INSERT INTO users VALUES(DEFAULT, $1, $2 ,$3, $4, $5)', [username, email, password,fname, lname], function(err, result) {
-
-    // client.query('INSERT INTO users (id, first_name, last_name, username, email, password)VALUES(DEFAULT, fname, lname, username, email, password)', function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
