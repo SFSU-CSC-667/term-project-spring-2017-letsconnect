@@ -41,7 +41,8 @@ app.post('/', function(req, res){
   var email = req.body.remail;
   var password = req.body.rpassword;
   var confpass = req.body.rconfirmpassword;
-  if(password != confpass){
+  var comparison = password.localeCompare(confpass);
+  if(comparison != 0){
     console.log('passwords do not match')
   }else{
 
