@@ -8,7 +8,9 @@ var app = express();
 // Setting up module for PostgreSQL to be utilized in NodeJS
 var pg = require('pg');
 pg.defaults.ssl = true;
-
+// Setting up crypto for hashing
+var crypto = require('crypto');
+var hash = crypto.createHash('sha256');
 var sess;
 
 app.set('port', (process.env.PORT || 3000));
@@ -27,20 +29,23 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res){
 
+  // for registering an account
   console.log("Request body: " + req.body);
   console.log("First name: "+ req.body.fname);
   console.log("Last name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
+  console.log(fname);
   var lname = req.body.lname;
+  var username = req.body.username;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
