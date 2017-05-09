@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+    <meta charset="utf-8">
+    <title>Let's Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/basic-template.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <style type= "text/css">
+      
+      <!-- Page Division -->
+
+      .row.vertical-divider {
+        overflow: hidden;
+      }  
+      
+      .row.vertical-divider > div[class^="col-"] {
+        text-align: center;
+        padding-bottom: 100px;
+        margin-bottom: -100px;
+        border-left: 3px solid #B9BDBF;
+        border-right: 0px solid #B9BDBF;
+      } 
+      
+      .row.vertical-divider div[class^="col-"]:first-child {
+        border-left: none;
+      }
+      
+      .row.vertical-divider div[class^="col-"]:last-child {
+        border-right: none;
+      }
+
+      <!-------------------->
+
+
+
+    </style>
+    
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+
+  </head>
+ <body>
+
+ <form novalidate onsubmit="return validateForm()">
+ <div class="container-fluid">
+    <section class="container">
+    <div class="container-page">        
+      
+
+      <h1 class="dark-grey text-left">Let's Connect</h1>     
+
+ 
+      <div class="row vertical-divider" style="margin-top: 30px">
+      
+      <div class="col-md-1">
+        
+        <p>
+        <div class ="row">
+        <div class="form-group col-lg-6 text-right text-success">
+          <label><u>Edit Profile</u></label>
+        </div>
+        </div>
+        
+
+        
+
+        <div class ="row">
+        <div class="form-group col-lg-6 text-right">
+          <label><a class ="text-muted" href="deleteprofile">Deactivate</a> </label>  
+        </div>
+        </div>
+
+        </p>
+  
+      </div>
+    
+      
+
+
+      <div class="col-md-11">
+        
+        <h3 class="dark-grey text-left">Account Details</h3>
+      	</br>
+        <h5 class="dark-grey text-left"><strong>Update your profile detail below</strong></h5>
+        </br>
+      <div class ="row">
+       <div class="form-group col-lg-6 text-left">
+          <label>First Name</label>
+          <input type="text" name="fname" class="form-control" id="fname" value="fname" placeholder=" Current First Name goes here">
+        </div> 
+      </div>
+ 
+
+      <div class ="row">
+        <div class="form-group col-lg-6 text-left">
+          <label>Last Name</label>
+          <input type="text" name="lname" class="form-control" id="lname" value="lname" placeholder=" Current Last Name goes here">
+        </div>
+       </div>
+        
+       
+       <div class ="row">
+        <div class="form-group col-lg-6 text-left">
+          <label>Username</label>
+          <input type="text" name="uname" class="form-control" id="uname" value="uname" placeholder="Current Username goes here">
+        </div>
+       </div>
+        
+       
+       <div class ="row">
+        <div class="form-group col-lg-6 text-left">
+          <label>Email </label>
+          <input type="text" name="email" class="form-control" id="email" value="email" placeholder="Current Email goes here">
+        </div>
+       </div>
+
+       <div class="form-group col-lg-6 text-right">
+        <button type="submit" class="btn btn-success">Update</button>
+        </div>
+
+      </div>
+    
+      </div>
+    </div>
+  </section>
+</div>
+</form>
+</body>
+</html>

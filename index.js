@@ -40,7 +40,7 @@ app.post('/', function(req, res){
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users VALUES(DEFAULT, $3, $4)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -94,6 +94,49 @@ app.get('/db', function (request, response) {
     });
   });
 });
+
+app.get('/editprofile', function(request, response) {
+  response.render('pages/editprofile');
+});
+
+app.post('/editprofile', function(req, res){
+
+  console.log("Request body: " + req.body);
+  console.log("First name: "+ req.body.fname);
+  console.log("Last name:" + req.body.lname);
+  console.log("Username:" + req.body.uname);
+  console.log("Email:" + req.body.email);
+  console.log("Database URL: " + process.env.DATABASE_URL);
+
+  var fname = req.body.fname;
+  var lname = req.body.lname;
+  var uname = req.body.uname;
+  var email = req.body.email;
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    console.log("connected to database");
+
+    client.query('UPDATE users SET VALUES(DEFAULT, $1, $2, $3, $4) WHERE id = '2'', [uname, email, fname, lname], function(err, result) {
+
+      if (err) {
+        return console.error('error running query', err);
+      }
+      done();
+      res.redirect('/db');
+    });
+  });
+});
+
+
+
+
+app.get('/deleteprofile', function(request, response) {
+  response.render('pages/deleteprofile');
+});
+
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
