@@ -28,8 +28,8 @@ app.get('/', function(request, response) {
 app.post('/', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("First name: "+ req.body.fname);
-  console.log("Last name:" + req.body.lname);
+  console.log("first_name: "+ req.body.fname);
+  console.log("last_name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
@@ -40,7 +40,7 @@ app.post('/', function(req, res){
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $3, $4)', [fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
