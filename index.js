@@ -13,6 +13,7 @@ pg.defaults.ssl = true;
 // Setting up crypto for hashing
 var crypto = require('crypto');
 var hash = crypto.createHash('sha256');
+
 var sess;
 
 app.set('port', (process.env.PORT || 3000));
@@ -42,14 +43,6 @@ app.post('/', function(req, res){
   var username = req.body.username;
   var email = req.body.remail;
   var password = req.body.rpassword;
-  var confpass = req.body.rconfirmpassword;
-  
-    if(password == confpass){
-      console.log('match!');
-    }else{
-      console.log('no match. :(');
-    }
-
 
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
