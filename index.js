@@ -11,6 +11,9 @@ var pg = require('pg');
 pg.defaults.ssl = true;
 
 // Setting up crypto for hashing
+// algorithm: sha256
+// encoding type: utf-8
+// format for the hash: hex
 var crypto = require('crypto');
 var hash = crypto.createHash('sha256');
 
@@ -74,23 +77,28 @@ app.get('/land', function(request, response) {
 app.post('/land', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("First name: "+ req.body.fname);
-  console.log("Last name:" + req.body.lname);
+  console.log("First name: "+ req.body.logemail);
+  console.log("Last name:" + req.body.logpassword);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
-  var fname = req.body.fname;
-  var lname = req.body.lname;
+  var email = req.body.logemail;
+  var password = req.body.logpassword;
+
+  var hash_update = hash.update(password, 'utf-8');
+  var generated_hash = hash_update.digest('hex');
+
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('SELECT id FROM users WHERE email = $1 AND password = $2', [email, generated_hash], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
       }
+      console.log(results);
       done();
       res.redirect('/db');
     });
