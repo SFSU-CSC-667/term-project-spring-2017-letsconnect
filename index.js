@@ -44,13 +44,17 @@ app.post('/', function(req, res){
   var email = req.body.remail;
   var password = req.body.rpassword;
 
+  // trying to has password
+  var hash_update = hash.update(password, 'utf-8');
+  var generated_hash = hash_update.digest('hex');
+
       pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2 ,$3, $4, $5)', [username, email, password,fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2 ,$3, $4, $5)', [username, email, generated_hash,fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
