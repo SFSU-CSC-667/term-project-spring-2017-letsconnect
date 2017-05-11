@@ -95,6 +95,7 @@ app.get('/db', function (request, response) {
   });
 });
 
+
 app.get('/editprofile', function(request, response) {
   response.render('pages/editprofile');
 });
@@ -117,8 +118,8 @@ app.post('/editprofile', function(req, res){
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-
-    client.query('UPDATE users SET VALUES(DEFAULT, $1, $2, $3, $4) WHERE id = '2'', [uname, email, fname, lname], function(err, result) {
+    var query = "UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id='2'";
+    client.query(query, [uname, email, fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -129,7 +130,7 @@ app.post('/editprofile', function(req, res){
   });
 });
 
-
+ 
 
 
 app.get('/deleteprofile', function(request, response) {
