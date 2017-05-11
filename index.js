@@ -113,14 +113,13 @@ app.post('/editprofile', function(req, res){
   var lname = req.body.lname;
   var uname = req.body.uname;
   var email = req.body.email;
-  var userid = 
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
     var query = "UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE password = '1234'";
-    client.query(query, [uname, email, req.body.fname, lname], function(err, result) {
+    client.query(query, [req.body.uname,req.body.email, req.body.fname,req.body.lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
