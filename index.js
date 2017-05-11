@@ -120,7 +120,7 @@ app.post('/editprofile', function(req, res){
     }
     console.log("connected to database");
     var query = "UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = '1'";
-    client.query(query, [uname, email, fname, lname], function(err, result) {
+    client.query(query, [uname, email, req.body.fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
