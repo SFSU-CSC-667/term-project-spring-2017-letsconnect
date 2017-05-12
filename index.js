@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 app.post('/', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("first_name: "+ req.body.fname);
+  console.log("first_name: "+ req.fname);
   console.log("last_name:" + req.body.lname);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
@@ -108,7 +108,9 @@ app.post('/editprofile', function(req, res){
   console.log("Username:" + req.body.uname);
   console.log("Email:" + req.body.email);
   console.log("Database URL: " + process.env.DATABASE_URL);
-
+  
+  const data = {fname: req.body.fname, lname: req.body.lname, uname: req.body.uname, email: req.body.email};
+  
   var fname = req.body.fname;
   var lname = req.body.lname;
   var uname = req.body.uname;
@@ -118,7 +120,7 @@ app.post('/editprofile', function(req, res){
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-    client.query('UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = ($5)', [req.body.uname, req.body.email, req.body.fname, req.body.lname, 2], function(err, result) {
+    client.query('UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = ($5)', [data.uname, data.email, data.fname, data.lname, 2], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
