@@ -118,8 +118,7 @@ app.post('/editprofile', function(req, res){
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-    var query = "UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE password = ($5)";
-    client.query(query, [req.body.uname,req.body.email, req.body.fname,req.body.lname, 1234], function(err, result) {
+    client.query('UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = ($5)', [req.body.uname, req.body.email, req.body.fname, req.body.lname, 2], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
