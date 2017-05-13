@@ -91,7 +91,7 @@ app.post('/land', function(req, res){
     if (err) {
       return console.error('error fetching client from pool', err);
     }
-    console.log("connected to database");
+    console.log("connected to database in land");
 
     client.query('SELECT id FROM users WHERE email = $1 AND password = $2', [email, generated_hash], function(err, result) {
 
