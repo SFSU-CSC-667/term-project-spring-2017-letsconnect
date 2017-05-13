@@ -100,6 +100,7 @@ app.get('/editprofile', function(request, response) {
   response.render('pages/editprofile');
 });
 
+
 app.post('/editprofile', function(req, res){
 
   console.log("Request body: " + req.body);
@@ -120,7 +121,8 @@ app.post('/editprofile', function(req, res){
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-    client.query('UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = ($5)', [data.uname, data.email, data.fname, data.lname, 2], function(err, result) {
+    //client.query('UPDATE users SET username = ($1), email = ($2), first_name = ($3), last_name = ($4) WHERE id = ($5)', [data.uname, data.email, data.fname, data.lname, 2], function(err, result) {
+    client.query('UPDATE users SET (username, email) = (testuser, testemail)', function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -137,6 +139,34 @@ app.post('/editprofile', function(req, res){
 app.get('/deleteprofile', function(request, response) {
   response.render('pages/deleteprofile');
 });
+
+
+
+app.post('/deleteprofile', function(req, res){
+
+  console.log("Request body: " + req.body);
+  console.log("Username:" + req.body.uname);
+  console.log("Database URL: " + process.env.DATABASE_URL);
+  
+  const data = {uname: req.body.uname};
+  
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    console.log("connected to database");
+    client.query('DELETE users WHERE username = ($1)', [data.uname], function(err, result) {
+
+      if (err) {
+        return console.error('error running query', err);
+      }
+      done();
+      res.redirect('/db');
+    });
+  });
+});
+
+
 
 
 
