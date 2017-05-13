@@ -77,8 +77,8 @@ app.get('/land', function(request, response) {
 app.post('/land', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("First name: "+ req.body.logemail);
-  console.log("Last name:" + req.body.logpassword);
+  console.log("email: "+ req.body.logemail);
+  console.log("password:" + req.body.logpassword);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var email = req.body.logemail;
