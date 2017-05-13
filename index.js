@@ -160,7 +160,7 @@ app.post('/deleteprofile', function(req, res){
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-    client.query('DELETE users WHERE username = ($1)', [uname], function(err, result) {
+    client.query('DELETE FROM users WHERE username = ($1)', [uname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
