@@ -28,8 +28,10 @@ app.get('/', function(request, response) {
 app.post('/', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("first_name: "+ req.fname);
+  console.log("first_name: "+ req.body.fname);
   console.log("last_name:" + req.body.lname);
+  console.log("user_name:" + req.body.uname);
+  console.log("email:" + req.body.email);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
