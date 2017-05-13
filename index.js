@@ -34,13 +34,16 @@ app.post('/', function(req, res){
 
   var fname = req.body.fname;
   var lname = req.body.lname;
+  var uname = req.body.uname;
+  var email = req.body.email;
+
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2, $3, $4)', [uname, email, fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -116,6 +119,7 @@ app.post('/editprofile', function(req, res){
   var lname = req.body.lname;
   var uname = req.body.uname;
   var email = req.body.email;
+  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
