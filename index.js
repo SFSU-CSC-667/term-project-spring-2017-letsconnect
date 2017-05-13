@@ -47,7 +47,7 @@ app.post('/', function(req, res){
   var email = req.body.remail;
   var password = req.body.rpassword;
 
-  // trying to has password
+  // hash password
   var hash_update = hash.update(password, 'utf-8');
   var generated_hash = hash_update.digest('hex');
 
@@ -70,7 +70,7 @@ app.post('/', function(req, res){
 
 app.get('/land', function(request, response) {
 
-  response.render('pages/land');
+  response.render('pages/game');
 
 });
 

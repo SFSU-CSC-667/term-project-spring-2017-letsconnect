@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/lcheader.ejs %>
+  <link rel="stylesheet" type="text/css" href = "css/games.css">
+
+</head>
+
+<body>
+
+  <% include ../partials/lcnav.ejs %>
+  <div class = "container-fluid">
+  	<!-- Outside the column, maybe just game #? <br><br> -->
+  	<div class = "row">
+  		<div class = "col-md-7 pre-scrollable col-md-offset-1" id= "game">
+  			<table class="currentgame" width = "100%">
+  				<thead>
+  					<tr>
+  						<th><h2>Game </h2></th>
+  						<th><h2>Opponent</h2></th>
+  						<th><h2>Resume</h2></th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<% for(var i=0; i<20; i++) {%>
+			  			 <tr>
+			  			 	<td><h3><%= i%></h3></td>
+			  			 	<td><h3>Enemy</h3></td>
+			  			 	<td>
+			  			 		<button type="button" class="btn btn-success btn-lg">Resume game</button>
+			  			 	</td>
+			  			 </tr>
+					<% } %>
+  				</tbody>
+  			</table>
+<!--   			<h1>Game list </h1>
+  			col-md-8
+  			<% for(var i=0; i<100; i++) {%>
+			   List of Games i<br>
+			<% } %> -->
+  		</div> <!-- end col-md-8 -->
+  		<div class = "col-md-3 pre-scrollable" id = "messages"> 
+  			<h1>Chat </h1>
+
+  			<% for(var i=0; i<100; i++) {%>
+			   time username message <%= i%><br>
+			<% } %>
+
+  		</div> <!-- end col-md-4 -->
+  	</div> <!--end row -->
+<!--   	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  	end of container -->
+  </div> <!-- end container-fluid -->
+<!--   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  End of body<br> -->
+</body>
+
+
+
