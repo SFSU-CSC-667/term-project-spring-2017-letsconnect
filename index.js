@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 app.post('/', function(req, res){
 
   console.log("Request body: " + req.body);
-  console.log("first_name: "+ req.body.fname);
+  console.log("first_name:"+ req.body.fname);
   console.log("last_name:" + req.body.lname);
   console.log("user_name:" + req.body.uname);
   console.log("email:" + req.body.email);
@@ -153,14 +153,14 @@ app.post('/deleteprofile', function(req, res){
   console.log("Username:" + req.body.uname);
   console.log("Database URL: " + process.env.DATABASE_URL);
   
-  const data = {uname: req.body.uname};
+  var uname = req.body.uname;
   
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
-    client.query('DELETE users WHERE username = ($1)', [data.uname], function(err, result) {
+    client.query('DELETE users WHERE username = ($1)', [uname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
