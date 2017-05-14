@@ -27,52 +27,24 @@ app.get('/', function(request, response) {
 
 app.post('/', function(req, res){
 
-  console.log("Request body: " + req.body);
-  console.log("First name: "+ req.body.fname);
-  console.log("Last name:" + req.body.lname);
-  console.log("Database URL: " + process.env.DATABASE_URL);
+  // console.log("Request body: " + req.body);
+  // console.log("First name: "+ req.body.fname);
+  // console.log("Last name:" + req.body.lname);
+  // console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
   var lname = req.body.lname;
+  var username = req.body.email;
+  var email = req.body.email;
+  var password = req.body.password;
+
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if (err) {
       return console.error('error fetching client from pool', err);
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
-
-      if (err) {
-        return console.error('error running query', err);
-      }
-      done();
-      res.redirect('/db');
-    });
-  });
-});
-
-app.get('/land', function(request, response) {
-
-  response.render('pages/land');
-
-});
-
-app.post('/land', function(req, res){
-
-  console.log("Request body: " + req.body);
-  console.log("First name: "+ req.body.fname);
-  console.log("Last name:" + req.body.lname);
-  console.log("Database URL: " + process.env.DATABASE_URL);
-
-  var fname = req.body.fname;
-  var lname = req.body.lname;
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    if (err) {
-      return console.error('error fetching client from pool', err);
-    }
-    console.log("connected to database");
-
-    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2, $3, $4, $5)', [fname, lname, username, email, password], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -85,7 +57,7 @@ app.post('/land', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM users', function(err, result) {
+    client.query('SELECT * FROM temp_user', function(err, result) {
       if (err)
       { console.error(err); response.send("Error " + err); }
       else
