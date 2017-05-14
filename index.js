@@ -57,7 +57,7 @@ app.post('/', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM temp_user', function(err, result) {
+    client.query('SELECT * FROM users', function(err, result) {
       if (err)
       { console.error(err); response.send("Error " + err); }
       else
