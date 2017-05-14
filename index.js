@@ -37,7 +37,7 @@ app.post('/', function(req, res){
 
   var fname = req.body.fname;
   var lname = req.body.lname;
-  var username = req.body.email;
+  var username = req.body.username;
   var email = req.body.email;
   var password = req.body.password;
 
