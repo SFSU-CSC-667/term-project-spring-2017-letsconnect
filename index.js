@@ -30,6 +30,9 @@ app.post('/', function(req, res){
   console.log("Request body: " + req.body);
   console.log("First name: "+ req.body.fname);
   console.log("Last name:" + req.body.lname);
+  console.log("Username:" + req.body.username);
+  console.log("Email:" + req.body.email);
+  console.log("Password:" + req.body.password);
   console.log("Database URL: " + process.env.DATABASE_URL);
 
   var fname = req.body.fname;
