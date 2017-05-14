@@ -40,7 +40,7 @@ app.post('/', function(req, res){
     }
     console.log("connected to database");
 
-    client.query('INSERT INTO temp_user VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
+    client.query('INSERT INTO users VALUES(DEFAULT, $1, $2)', [fname, lname], function(err, result) {
 
       if (err) {
         return console.error('error running query', err);
@@ -85,7 +85,7 @@ app.post('/land', function(req, res){
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM temp_user', function(err, result) {
+    client.query('SELECT * FROM users', function(err, result) {
       if (err)
       { console.error(err); response.send("Error " + err); }
       else
