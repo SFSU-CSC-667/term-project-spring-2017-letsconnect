@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  row(style="margin-top:50px;")
+    div.col-md-6.col-md-offset-1.panel.panel-default
+      //Lobby
+      //Active games
+      div
+        h2 Your currently active games
+        ul
+          if results
+            for r in results
+              li= r.game_id
+          else 
+            p= "You have no current games"
+        
+      //New game
+      div
+        form(action="/game" method="get")
+          h2 Join a new game
+          button.btn-default(type="submit") New game
+    div.col-md-4.panel.panel-default
+      //chat
+      h2 Chat
+      div.panel.panel-default
+        #chat-area
+          .row
+            .messages.col-lg-10.well.well-sm.col-lg-offset-1
+          .row
+            .col-lg-12
+              .input-group
+                input.form-control(type='text', placeholder='Message...')
+                span.input-group-btn
+                  button.btn.btn-default(type='button') Send
+
+        form.form-inline#initial-form
+          .form-group
+            label(for='who-are-you') Who are you?
+            input#who-are-you.form-control(type='text', placeholder='Anonymous')
+          button.btn.btn-primary(type='submit') Start Chatting

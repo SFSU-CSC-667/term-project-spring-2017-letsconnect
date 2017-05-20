@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  div.container
+    div.col-md-12
+      h4
+      div.row
+        div.col-md-1
+          div.row
+            p
+              b 
+                a(href="/delete") Delete Profile
+        div.col-md-1
+          div.row
+            p 
+              b 
+                u 
+                  a(href="/test-c") Edit Profile
+      div.row
+        div.col-md-4
+          div.row
+            form(method='POST' action='/' autocomplete='off')
+              //- username
+              div.form-group
+                label(for='username') Username:
+                input#username.form-control(type='username', placeholder='mbain' name='username')
+              //- email
+              div.form-group
+                label(for='email') Email: 
+                input#email.form-control(type='email', placeholder='miles@bainbridge' name='email')
+              //- password
+              div.form-group
+                label(for='password') Password: 
+                input#password.form-control(type='password', placeholder='xxxxxxx' name='password')
+              div.form-group
+                div.col-md-12
+                button.btn.btn-warning(type='submit') Edit

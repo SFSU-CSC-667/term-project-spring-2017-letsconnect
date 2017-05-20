@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h2 PostgresQL Database
+    
+  table
+    th id |    |&nbsp;&nbsp;
+    th first name |    |&nbsp;&nbsp;
+    th last name |    |&nbsp;&nbsp;
+    th username |    |&nbsp;&nbsp;
+    th email |    |&nbsp;&nbsp;
+    th password |    |&nbsp;&nbsp;
+    th join_date |    |&nbsp;&nbsp;
+    for r in results
+      tr
+        td= r.id
+        td= r.first_name
+        td= r.last_name
+        td= r.username
+        td= r.email
+        td= r.password
+        td= r.join_date

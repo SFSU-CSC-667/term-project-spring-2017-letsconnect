@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(action="/login" method="post" id="login")
+    div.form-group.col-md-6
+      label(for='email') Email address:  
+      input(class='form-control' id='email' type='email' name='email')
+    div.form-group.col-md-6
+      label(for='password') Password:  
+      input(class='form-control' id='password' type='password' name='password')
+    div.form-group.col-md-6
+      button.btn.btn-success(type='submit') Submit

@@ -1,39 +1,35 @@
-# node-js-getting-started
+## Table of Contents
++ [Running this project](#run)
+  + [List of Node Modules utilized](#list)
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
-
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
+## Running this project <a name="run"></a>
 
 ```
-$ heroku create
-$ git push heroku master
-$ heroku open
+git clone https://github.com/almondmilk/connectfour.git
+cd connectfour
+npm install
+npm run build
+npm run start
+open localhost:3000
 ```
-or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+### List of Node Modules utilized <a name="list"></a>
+```
+body-parser           https://www.npmjs.com/package/body-parser
+bootstrap-validator   https://www.npmjs.com/package/bootstrap-validator
+connect-four          https://www.npmjs.com/package/connect-four
+connect-pg-simple     https://www.npmjs.com/package/connect-pg-simple
+cookie-parser         https://www.npmjs.com/package/cookie-parser
+debug                 https://www.npmjs.com/package/debug
+express               https://www.npmjs.com/package/express
+express-session       https://www.npmjs.com/package/express-session
+moment                https://www.npmjs.com/package/moment
+morgan                https://www.npmjs.com/package/morgan
+pg                    https://www.npmjs.com/package/pg
+pug                   https://www.npmjs.com/package/pug
+serve-favicon         https://www.npmjs.com/package/serve-favicon
+socket.io             https://www.npmjs.com/package/socket.io
+```
 
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+I did some fancy where I wanted to make some code accessible to both front and back ends, so I used [browserify](http://browserify.org/) to create a frontend bundle.  Would love questions, PRs to improve (add rooms, for example), and comments!

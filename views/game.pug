@@ -1,0 +1,141 @@
+extends layout
+
+block content
+  script(type="text/javascript", src='/javascripts/gameui.js')
+  script.
+    var a = initColumn();
+    var b = initColumn();
+    var c = initColumn();
+    var d = initColumn();
+    var e = initColumn();
+    var f = initColumn();
+    var g = initColumn();
+    var player = 1;
+  row(style="margin-top:50px;")
+    h2 Connect Four Game
+    div#gameboard.col-lg-7.col-md-7.col-sm-7 
+      table.gameboard
+        tr(style="min-height:100px;")
+          td#colatop(onmouseenter="mouseOverA()" onmouseleave="mouseOutA()")
+            br
+            br
+            br
+            br
+          td#colbtop(onmouseenter="mouseOverB()" onmouseleave="mouseOutB()")
+          td#colctop(onmouseenter="mouseOverC()" onmouseleave="mouseOutC()")
+          td#coldtop(onmouseenter="mouseOverD()" onmouseleave="mouseOutD()")
+          td#coletop(onmouseenter="mouseOverE()" onmouseleave="mouseOutE()")
+          td#colftop(onmouseenter="mouseOverF()" onmouseleave="mouseOutF()")
+          td#colgtop(onmouseenter="mouseOverG()" onmouseleave="mouseOutG()")
+        tr#row6
+          td#a6.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+            img#imga6(src='images/slot.png')
+          td#b6.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+            img#imgb6(src='images/slot.png')
+          td#c6.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)") 
+            img#imgc6(src='images/slot.png')
+          td#d6.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)") 
+            img#imgd6(src='images/slot.png')
+          td#e6.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)") 
+            img#imge6(src='images/slot.png')
+          td#f6.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)") 
+            img#imgf6(src='images/slot.png')
+          td#g6.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)") 
+            img#imgg6(src='images/slot.png')  
+        tr#row5
+          td#a5.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+            img#imga5(src='images/slot.png')
+          td#b5.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+            img#imgb5(src='images/slot.png')
+          td#c5.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+            img#imgc5(src='images/slot.png')
+          td#d5.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+            img#imgd5(src='images/slot.png')
+          td#e5.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+            img#imge5(src='images/slot.png')
+          td#f5.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+            img#imgf5(src='images/slot.png')
+          td#g5.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+            img#imgg5(src='images/slot.png')
+        tr#row4
+          td#a4.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+            img#imga4(src='images/slot.png')
+          td#b4.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+            img#imgb4(src='images/slot.png')
+          td#c4.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+            img#imgc4(src='images/slot.png')
+          td#d4.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+            img#imgd4(src='images/slot.png')
+          td#e4.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+            img#imge4(src='images/slot.png')
+          td#f4.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+            img#imgf4(src='images/slot.png')
+          td#g4.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+            img#imgg4(src='images/slot.png')
+        tr#row3
+          td#a3.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)") 
+            img#imga3(src='images/slot.png')
+          td#b3.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+            img#imgb3(src='images/slot.png')
+          td#c3.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+            img#imgc3(src='images/slot.png')
+          td#d3.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+            img#imgd3(src='images/slot.png')
+          td#e3.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+            img#imge3(src='images/slot.png')
+          td#f3.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+            img#imgf3(src='images/slot.png')
+          td#g3.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+            img#imgg3(src='images/slot.png')
+        tr#row2
+          td#a2.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+            img#imga2(src='images/slot.png')
+          td#b2.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+            img#imgb2(src='images/slot.png')
+          td#c2.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+            img#imgc2(src='images/slot.png')
+          td#d2.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+            img#imgd2(src='images/slot.png')
+          td#e2.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+            img#imge2(src='images/slot.png')
+          td#f2.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+            img#imgf2(src='images/slot.png')
+          td#g2.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+            img#imgg2(src='images/slot.png')
+        tr#row1
+          td#a1.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)") 
+            img#imga1(src='images/slot.png')
+          td#b1.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+            img#imgb1(src='images/slot.png')
+          td#c1.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+            img#imgc1(src='images/slot.png')
+          td#d1.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+            img#imgd1(src='images/slot.png')
+          td#e1.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+            img#imge1(src='images/slot.png')
+          td#f1.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+            img#imgf1(src='images/slot.png')
+          td#g1.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+            img#imgg1(src='images/slot.png')
+      div#buttons
+        button#player1(onclick='playerOne(player)') Player 1
+        button#player2(onclick='playerTwo(player)') Player 2
+    div.col-md-4.panel.panel-default
+      //chat
+      h2 Chat
+      div.panel.panel-default
+        #chat-area
+          .row
+            .messages.col-lg-10.well.well-sm.col-lg-offset-1
+          .row
+            .col-lg-12
+              .input-group
+                input.form-control(type='text', placeholder='Message...')
+                span.input-group-btn
+                  button.btn.btn-default(type='button') Send
+
+        form.form-inline#initial-form
+          .form-group
+            label(for='who-are-you') Who are you?
+            input#who-are-you.form-control(type='text', placeholder='Anonymous')
+          button.btn.btn-primary(type='submit') Start Chatting
