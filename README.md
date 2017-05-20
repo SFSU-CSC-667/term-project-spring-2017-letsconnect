@@ -15,6 +15,8 @@ open localhost:3000
 
 also hosted on heroku
 alvinlu.herokuapp.com
+
+https://github.com/almondmilk/connectfour
 ```
 
 ### List of Node Modules utilized <a name="list"></a>
