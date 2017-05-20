@@ -62,11 +62,11 @@ router.post('/', function(request, response){
   });
 });
 
-router.get('/test-a', function(request, response){
-  response.render('test-a', {logged: logged});
+router.get('/land', function(request, response){
+  response.render('land', {logged: logged});
 });
 
-router.post('/test-a', function(request, response){
+router.post('/land', function(request, response){
   console.log("Inside post.");
   var fname = request.body.fname;
   var lname = request.body.lname;
@@ -201,7 +201,7 @@ router.post('/delete', function(request, response){
     });
   }
   else{
-    response.redirect('/test-a');
+    response.redirect('/land');
   }
 
 });
