@@ -12,6 +12,10 @@ var playerTwo = function(player){
   console.log("Player: " + player + " Token image: " + tokenImage);
 }
 
+var getPlayer = function(){
+  return player;
+}
+
 var mouseOverA = function(){
   var cell = document.getElementById('colatop');
 
@@ -84,6 +88,7 @@ function clickA(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
@@ -98,11 +103,13 @@ function clickB(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 
 function clickC(column,player){
@@ -111,11 +118,13 @@ function clickC(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 
 function clickD(column,player){
@@ -124,11 +133,13 @@ function clickD(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 
 function clickE(column,player){
@@ -137,11 +148,13 @@ function clickE(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 
 function clickF(column,player){
@@ -150,11 +163,13 @@ function clickF(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 
 function clickG(column,player){
@@ -163,11 +178,13 @@ function clickG(column,player){
     if(column[i] == 0){
       column[i] = player;
       targetID += (i+1);
+      checkWin();
       break;
     }
   }
   element = document.getElementById(targetID);
   element.src = tokenImage;
+
 }
 function initColumn(){
   column=[0,0,0,0,0,0];

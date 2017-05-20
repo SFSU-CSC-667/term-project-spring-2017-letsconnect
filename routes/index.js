@@ -62,11 +62,11 @@ router.post('/', function(request, response){
   });
 });
 
-router.get('/land', function(request, response){
-  response.render('land', {logged: logged});
+router.get('/test-a', function(request, response){
+  response.render('test-a', {logged: logged});
 });
 
-router.post('/land', function(request, response){
+router.post('/test-a', function(request, response){
   console.log("Inside post.");
   var fname = request.body.fname;
   var lname = request.body.lname;
@@ -161,11 +161,11 @@ router.post('/login', function(request,response){
   });
 });
 
-router.get('/delete', function(request, response){
-  response.render('delete', {logged: logged});
+router.get('/test-b', function(request, response){
+  response.render('test-b', {logged: logged});
 });
 
-router.post('/delete', function(request, response){
+router.post('/test-b', function(request, response){
   console.log("Inside post.");
   var uname = request.body.username;
   var email = request.body.email;
@@ -201,7 +201,7 @@ router.post('/delete', function(request, response){
     });
   }
   else{
-    response.redirect('/land');
+    response.redirect('/test-a');
   }
 
 });
@@ -249,8 +249,6 @@ router.get('/logout', function(request,response){
 router.get('/lobby', function(request, response){
   console.log("In lobby route.");
   var sess = request.session;
-  console.log('==================')
-
   if(sess.email){
     console.log("Lobby:  Session exists.");
     logged = true;

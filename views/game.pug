@@ -10,9 +10,11 @@ block content
     var e = initColumn();
     var f = initColumn();
     var g = initColumn();
+    var board = [a,b,c,d,e,f,g];
     var player = 1;
   row(style="margin-top:50px;")
     h2 Connect Four Game
+    h2#winner
     div#gameboard.col-lg-7.col-md-7.col-sm-7 
       table.gameboard
         tr(style="min-height:100px;")
@@ -28,98 +30,96 @@ block content
           td#colftop(onmouseenter="mouseOverF()" onmouseleave="mouseOutF()")
           td#colgtop(onmouseenter="mouseOverG()" onmouseleave="mouseOutG()")
         tr#row6
-          td#a6.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+          td#a6.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()")
             img#imga6(src='images/slot.png')
-          td#b6.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+          td#b6.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()") 
             img#imgb6(src='images/slot.png')
-          td#c6.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)") 
+          td#c6.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()") 
             img#imgc6(src='images/slot.png')
-          td#d6.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)") 
+          td#d6.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()") 
             img#imgd6(src='images/slot.png')
-          td#e6.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)") 
+          td#e6.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()") 
             img#imge6(src='images/slot.png')
-          td#f6.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)") 
+          td#f6.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()") 
             img#imgf6(src='images/slot.png')
-          td#g6.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)") 
+          td#g6.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()") 
             img#imgg6(src='images/slot.png')  
         tr#row5
-          td#a5.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+          td#a5.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()")
             img#imga5(src='images/slot.png')
-          td#b5.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+          td#b5.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()")  
             img#imgb5(src='images/slot.png')
-          td#c5.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+          td#c5.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()")   
             img#imgc5(src='images/slot.png')
-          td#d5.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+          td#d5.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()")  
             img#imgd5(src='images/slot.png')
-          td#e5.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+          td#e5.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()")  
             img#imge5(src='images/slot.png')
-          td#f5.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+          td#f5.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()")  
             img#imgf5(src='images/slot.png')
-          td#g5.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+          td#g5.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()")  
             img#imgg5(src='images/slot.png')
         tr#row4
-          td#a4.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+          td#a4.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()")
             img#imga4(src='images/slot.png')
-          td#b4.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+          td#b4.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()") 
             img#imgb4(src='images/slot.png')
-          td#c4.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+          td#c4.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()")   
             img#imgc4(src='images/slot.png')
-          td#d4.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+          td#d4.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()")  
             img#imgd4(src='images/slot.png')
-          td#e4.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+          td#e4.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()")  
             img#imge4(src='images/slot.png')
-          td#f4.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+          td#f4.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()")  
             img#imgf4(src='images/slot.png')
-          td#g4.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+          td#g4.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()")  
             img#imgg4(src='images/slot.png')
         tr#row3
-          td#a3.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)") 
+          td#a3.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()") 
             img#imga3(src='images/slot.png')
-          td#b3.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+          td#b3.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()")  
             img#imgb3(src='images/slot.png')
-          td#c3.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+          td#c3.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()")   
             img#imgc3(src='images/slot.png')
-          td#d3.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+          td#d3.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()")  
             img#imgd3(src='images/slot.png')
-          td#e3.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+          td#e3.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()")  
             img#imge3(src='images/slot.png')
-          td#f3.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+          td#f3.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()")  
             img#imgf3(src='images/slot.png')
-          td#g3.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+          td#g3.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()")  
             img#imgg3(src='images/slot.png')
         tr#row2
-          td#a2.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)")
+          td#a2.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()")
             img#imga2(src='images/slot.png')
-          td#b2.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)") 
+          td#b2.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()") 
             img#imgb2(src='images/slot.png')
-          td#c2.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+          td#c2.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()")   
             img#imgc2(src='images/slot.png')
-          td#d2.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+          td#d2.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()")  
             img#imgd2(src='images/slot.png')
-          td#e2.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+          td#e2.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()")  
             img#imge2(src='images/slot.png')
-          td#f2.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+          td#f2.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()")  
             img#imgf2(src='images/slot.png')
-          td#g2.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+          td#g2.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()")  
             img#imgg2(src='images/slot.png')
         tr#row1
-          td#a1.col-lg-1.col-md-1.col-sm-1(onclick="clickA(a,player)") 
+          td#a1.col-lg-1.col-md-1.col-sm-1(onclick="clickANew()") 
             img#imga1(src='images/slot.png')
-          td#b1.col-lg-1.col-md-1.col-sm-1(onclick="clickB(b,player)")  
+          td#b1.col-lg-1.col-md-1.col-sm-1(onclick="clickBNew()")  
             img#imgb1(src='images/slot.png')
-          td#c1.col-lg-1.col-md-1.col-sm-1(onclick="clickC(c,player)")   
+          td#c1.col-lg-1.col-md-1.col-sm-1(onclick="clickCNew()")   
             img#imgc1(src='images/slot.png')
-          td#d1.col-lg-1.col-md-1.col-sm-1(onclick="clickD(d,player)")  
+          td#d1.col-lg-1.col-md-1.col-sm-1(onclick="clickDNew()")  
             img#imgd1(src='images/slot.png')
-          td#e1.col-lg-1.col-md-1.col-sm-1(onclick="clickE(e,player)")  
+          td#e1.col-lg-1.col-md-1.col-sm-1(onclick="clickENew()")  
             img#imge1(src='images/slot.png')
-          td#f1.col-lg-1.col-md-1.col-sm-1(onclick="clickF(f,player)")  
+          td#f1.col-lg-1.col-md-1.col-sm-1(onclick="clickFNew()")  
             img#imgf1(src='images/slot.png')
-          td#g1.col-lg-1.col-md-1.col-sm-1(onclick="clickG(g,player)")  
+          td#g1.col-lg-1.col-md-1.col-sm-1(onclick="clickGNew()")  
             img#imgg1(src='images/slot.png')
-      div#buttons
-        button#player1(onclick='playerOne(player)') Player 1
-        button#player2(onclick='playerTwo(player)') Player 2
+    
     div.col-md-4.panel.panel-default
       //chat
       h2 Chat
@@ -139,3 +139,220 @@ block content
             label(for='who-are-you') Who are you?
             input#who-are-you.form-control(type='text', placeholder='Anonymous')
           button.btn.btn-primary(type='submit') Start Chatting
+          
+    script.
+      function checkWin(){
+        winEle = document.getElementById("winner");
+        playerNum = player;
+        //vertical
+        //a
+        if(a[0] == a[1] && a[1] == a[2] && a[2] == a[3] && a[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(a[1] == a[2] && a[2] == a[3] && a[3] == a[4] && a[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(a[2] == a[3] && a[3] == a[4] && a[4] == a[5] && a[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //b
+        if(b[0] == b[1] && b[1] == b[2] && b[2] == b[3] && b[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[1] == b[2] && b[2] == b[3] && b[3] == b[4] && b[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[2] == b[3] && b[3] == b[4] && b[4] == b[5] && b[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //c
+        if(c[0] == c[1] && c[1] == c[2] && c[2] == c[3] && c[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[1] == c[2] && c[2] == c[3] && c[3] == c[4] && c[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[2] == c[3] && c[3] == c[4] && c[4] == c[5] && c[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //d
+        if(d[0] == d[1] && d[1] == d[2] && d[2] == d[3] && d[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[1] == d[2] && d[2] == d[3] && d[3] == d[4] && d[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[2] == d[3] && d[3] == d[4] && d[4] == d[5] && d[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //e
+        if(e[0] == e[1] && e[1] == e[2] && e[2] == e[3] && e[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(e[1] == e[2] && e[2] == e[3] && e[3] == e[4] && e[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(e[2] == e[3] && e[3] == e[4] && e[4] == e[5] && e[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //f
+        if(f[0] == f[1] && f[1] == f[2] && f[2] == f[3] && f[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(f[1] == f[2] && f[2] == f[3] && f[3] == f[4] && f[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(f[2] == f[3] && f[3] == f[4] && f[4] == f[5] && f[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //g
+        if(g[0] == g[1] && g[1] == g[2] && g[2] == g[3] && g[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(g[1] == g[2] && g[2] == g[3] && g[3] == g[4] && g[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(g[2] == g[3] && g[3] == g[4] && g[4] == g[5] && g[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //horizontal 
+        
+        //0
+        
+        if(a[0] == b[0] && b[0] == c[0] && c[0] == d[0] && d[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[0] == c[0] && c[0] == d[0] && d[0] == e[0] && e[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[0] == d[0] && d[0] == e[0] && e[0] == f[0] && f[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[0] == e[0] && e[0] == f[0] && f[0] == g[0] && g[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+          
+        //1
+        if(a[1] == b[1] && b[1] == c[1] && c[1] == d[1] && d[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[1] == c[1] && c[1] == d[1] && d[1] == e[1] && e[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[1] == d[1] && d[1] == e[1] && e[1] == f[1] && f[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[1] == e[1] && e[1] == f[1] && f[1] == g[1] && g[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //2
+        if(a[2] == b[2] && b[2] == c[2] && c[2] == d[1] && d[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[2] == c[2] && c[2] == d[2] && d[2] == e[2] && e[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[2] == d[2] && d[2] == e[2] && e[2] == f[2] && f[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[2] == e[2] && e[2] == f[2] && f[2] == g[2] && g[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //3
+        if(a[3] == b[3] && b[3] == c[3] && c[3] == d[3] && d[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[3] == c[3] && c[3] == d[3] && d[3] == e[3] && e[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[3] == d[3] && d[3] == e[3] && e[3] == f[3] && f[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[3] == e[3] && e[3] == f[3] && f[3] == g[3] && g[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //4
+        if(a[4] == b[4] && b[4] == c[4] && c[4] == d[4] && d[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[4] == c[4] && c[4] == d[4] && d[4] == e[4] && e[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[4] == d[4] && d[4] == e[4] && e[4] == f[4] && f[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[4] == e[4] && e[4] == f[4] && f[4] == g[4] && g[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //5
+        if(a[5] == b[5] && b[5] == c[5] && c[5] == d[5] && d[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[5] == c[5] && c[5] == d[5] && d[5] == e[5] && e[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[5] == d[5] && d[5] == e[5] && e[5] == f[5] && f[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[5] == e[5] && e[5] == f[5] && f[5] == g[5] && g[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+          
+        //diagonal
+        // right-leaning
+        //starting at row 0
+        if(a[0] == b[1] && b[1] == c[2] && c[2] == d[3] && d[3] !=0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[0] == c[1] && c[1] == d[2] && d[2] == e[3] && e[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[0] == d[1] && d[1] == e[2] && e[2] == f[3] && f[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[0] == e[1] && e[1] == f[2] && f[2] == g[3] && g[3] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //starting at row 1
+        if(a[1] == b[2] && b[2] == c[3] && c[3] == d[4] && d[4] !=0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[1] == c[2] && c[2] == d[3] && d[3] == e[4] && e[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[1] == d[2] && d[2] == e[3] && e[3] == f[4] && f[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[1] == e[2] && e[2] == f[3] && f[3] == g[4] && g[4] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //starting at row 2
+        if(a[2] == b[3] && b[3] == c[4] && c[4] == d[5] && d[5] !=0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[2] == c[3] && c[3] == d[4] && d[4] == e[5] && e[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[2] == d[3] && d[3] == e[4] && e[4] == f[5] && f[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[2] == e[3] && e[3] == f[4] && f[4] == g[5] && g[5] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        // left-leaning
+        //starting at row 0
+        if(a[3] == b[2] && b[2] == c[1] && c[1] == d[0] && d[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[3] == c[2] && c[2] == d[1] && d[1] == e[0] && e[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[3] == d[2] && d[2] == e[1] && e[1] == f[0] && f[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[3] == e[2] && e[2] == f[1] && f[1] == g[0] && g[0] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //starting at row 1
+        if(a[4] == b[3] && b[3] == c[2] && c[2] == d[1] && d[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[4] == c[3] && c[3] == d[2] && d[2] == e[1] && e[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[4] == d[3] && d[3] == e[2] && e[2] == f[1] && f[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[4] == e[3] && e[3] == f[2] && f[2] == g[1] && g[1] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        //starting at row 2
+        if(a[5] == b[4] && b[4] == c[3] && c[3] == d[2] && d[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(b[5] == c[4] && c[4] == d[3] && d[3] == e[2] && e[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(c[5] == d[4] && d[4] == e[3] && e[3] == f[2] && f[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        if(d[5] == e[4] && e[4] == f[3] && f[3] == g[2] && g[2] != 0){
+          winEle.innerHTML = "Player " + playerNum + " wins!";}
+        
+      }
+      
+    script.
+      function p1(){
+        player = 1;
+        playerOne(player);}
+    script.
+      function p2(){
+        player = 2;
+        playerTwo(player);}
+    script.
+      function switchPlayer(){
+        if(player == 1)
+          p2();
+        else
+          p1();}
+    
+    script.
+      function clickANew(){
+        clickA(a,player);
+        switchPlayer();}
+    script.
+      function clickBNew(){
+        clickB(b,player);
+        switchPlayer();}
+    script.
+      function clickCNew(){
+        clickC(c,player);
+        switchPlayer();}
+    script.
+      function clickDNew(){
+        clickD(d,player);
+        switchPlayer();}
+    script.
+      function clickENew(){
+        clickE(e,player);
+        switchPlayer();}
+    script.
+      function clickFNew(){
+        clickF(f,player);
+        switchPlayer();}
+    script.
+      function clickGNew(){
+        clickG(g,player);
+        switchPlayer();}

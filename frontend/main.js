@@ -42,8 +42,8 @@ $( document ).ready( () => {
   let user = 'anonymous'
 
   $( '#initial-form button' ).click( event => {
-
     user = $( '#who-are-you' ).val()
+
     $( '#initial-form' ).hide()
     $( '#chat-area' ).show()
 
