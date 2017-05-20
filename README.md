@@ -12,6 +12,9 @@ npm install
 npm run build
 npm run start
 open localhost:3000
+
+also hosted on heroku
+alvinlu.herokuapp.com
 ```
 
 ### List of Node Modules utilized <a name="list"></a>
