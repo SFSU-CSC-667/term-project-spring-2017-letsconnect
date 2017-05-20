@@ -62,11 +62,11 @@ router.post('/', function(request, response){
   });
 });
 
-router.get('/test-a', function(request, response){
-  response.render('test-a', {logged: logged});
+router.get('/land', function(request, response){
+  response.render('land', {logged: logged});
 });
 
-router.post('/test-a', function(request, response){
+router.post('/land', function(request, response){
   console.log("Inside post.");
   var fname = request.body.fname;
   var lname = request.body.lname;
@@ -161,11 +161,11 @@ router.post('/login', function(request,response){
   });
 });
 
-router.get('/test-b', function(request, response){
-  response.render('test-b', {logged: logged});
+router.get('/delete', function(request, response){
+  response.render('delete', {logged: logged});
 });
 
-router.post('/test-b', function(request, response){
+router.post('/delete', function(request, response){
   console.log("Inside post.");
   var uname = request.body.username;
   var email = request.body.email;
@@ -201,7 +201,7 @@ router.post('/test-b', function(request, response){
     });
   }
   else{
-    response.redirect('/test-a');
+    response.redirect('/land');
   }
 
 });
