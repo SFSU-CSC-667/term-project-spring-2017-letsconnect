@@ -88,12 +88,7 @@ function clickA(column,player){
     }
   }
   element = document.getElementById(targetID);
-  if(player === 1){
-    element.src = "/images/red-chip.png";
-  }
-  if(player === 2){
-    element.src = "/img/yellow.png";
-  }
+  element.src = tokenImage;
 
 }
 
